@@ -5,7 +5,7 @@ body {
 margin:0;
 padding:0;
 background : url(images/background.jpg);
-background-size: cover; 
+background-size: auto;  /* Not what is expected either way, need to figure out a way to get a better background look*/
 background-position:center;
 font-family:sans-serif;
 
