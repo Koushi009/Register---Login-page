@@ -1,3 +1,27 @@
 @charset "UTF-8";
 /* CSS */
 
+body { 
+margin:0;
+padding:O;
+background : url(images/background.jpg);
+background-size: cover; 
+background-position:center;
+font-family:sans-serif;
+
+
+}
+
+.loginbox {
+	
+	width:320px;
+	height:420px;
+	background:rgba(0, 0, 0, 0.5);
+	color:#fff;
+	top:50%;
+	left:50%;
+	position:absolute;
+	transform:translate(-50%,-50%);
+	box-sizing:border-box;
+	
+}
