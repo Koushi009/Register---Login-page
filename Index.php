@@ -15,20 +15,18 @@ if (isset($_POST['username']) && isset($_POST['password'])){
 	$password = md5($passtemp);
 	$salt = password_hash($passtemp,PASSWORD_DEFAULT);
 	
-	$query = "INSERT INTO 'accounts' (username,password,salt) VALUES ('$username','$password','$salt')" ;
-	
-	$result = mysqli_query($connection,$query);
-	
-	if ($result) {
+	 // $query = "INSERT INTO 'accounts' (username,password,salt) VALUES ('$username','$password','$salt')" ;
+       $sql = "INSERT INTO 'accounts' (username, password, salt) VALUES ('$username', '$password', '$salt')"; 
+		$query = mysqli_query($connection,$sql)	;
 		
-		$smsg = "User Created Successfully";
-		}else{
-        $fmsg ="User Registration Failed";
-
-	}
-		
-		
-	
+	if($query)
+{
+echo "Success executing : $sql";
+}
+else
+{
+echo "Failed executing : $sql";
+}
 }
 
 

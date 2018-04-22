@@ -1,9 +1,14 @@
 <?php
-$connection = mysqli_connect('localhost', 'root','');
-if (!$connection){
-    die("Database Connection Failed" . mysqli_error($connection));
+$connection = mysqli_connect('localhost', 'root','','osirose');
+// checking if it works
+
+if (mysqli_connect_errno()) {
+	
+	printf("could not connect to the database",mysqli_connect_error());
+	exit();
+	
 }
-$select_db = mysqli_select_db($connection, 'osirose');
-if (!$select_db){
-    die("Database Selection Failed" . mysqli_error($connection));
-}
+
+
+
+?>
