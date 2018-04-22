@@ -45,7 +45,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
             <img src="images/avatar.png" alt="avatar" class="avatar" >
             
             <h1>Register</h1> 
-            <form> 
+            <form method="post"> 
             <p>Username</p>
             <input type="text" name="username"   placeholder="Enter username">
             <p>Password</p>
