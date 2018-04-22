@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require('connect.php');
 
 //we check if the user already exists 
@@ -8,8 +11,9 @@ if (isset($_POST['username']) && isset($_POST['password'])){
  
 	
 	$username= $_POST['username'] ;
-	$password= md5($_POST['password']) ;
-	$salt = password_hash($_POST['password']);
+	$passtemp= $_POST['password'] ;
+	$password = md5($passtemp);
+	$salt = password_hash($passtemp,PASSWORD_DEFAULT);
 	
 	$query = "INSERT INTO 'accounts' (username,password,salt) VALUES ('$username','$password','$salt')" ;
 	
