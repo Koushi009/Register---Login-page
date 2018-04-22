@@ -1,5 +1,5 @@
 <?php
-
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -16,7 +16,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
 	$salt = password_hash($passtemp,PASSWORD_DEFAULT);
 	
 	 // $query = "INSERT INTO 'accounts' (username,password,salt) VALUES ('$username','$password','$salt')" ;
-       $sql = "INSERT INTO 'accounts' (username, password, salt) VALUES ('$username', '$password', '$salt')"; 
+       $sql = "INSERT INTO accounts (username, password, salt) VALUES ('$username', '$password', '$salt')"; 
 		$query = mysqli_query($connection,$sql)	;
 		
 	if($query)
