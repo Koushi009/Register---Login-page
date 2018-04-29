@@ -12,8 +12,8 @@ if (isset($_POST['username']) && isset($_POST['password'])){
 	
 	$username= $_POST['username'] ;
 	$passtemp= $_POST['password'] ;
-	$password = md5($passtemp);
-	$salt = hash('sha256',$passtemp);
+	$password = hash('sha256'$passtemp);
+	// $salt = hash('sha256',$passtemp); - Ok so that was dumb
 	
 	 // $query = "INSERT INTO 'accounts' (username,password,salt) VALUES ('$username','$password','$salt')" ;
        $sql = "INSERT INTO accounts (username, password, salt) VALUES ('$username', '$password', '$salt')"; 
