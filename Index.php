@@ -2,26 +2,19 @@
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
 require('connect.php');
-
 //we check if the user already exists 
-
 if (isset($_POST['username']) && isset($_POST['password'])){
  
-	
-	$username= $_POST['username'] ;
-	$passtemp= $_POST['password'] ;
-	$password = hash('sha256',$passtemp);
-	$salt = uniqid(mt_rand(), true);
+   
+    $username= $_POST['username'] ; // Setting username
+    $password = md5($_POST['password']); // setting pass
+    
+ 
+    $query = $connection->query("CALL create_account('$username','$password')") ;
 
-	// $salt = hash('sha256',$passtemp); - Ok so that was dumb
-	
-	 // $query = "INSERT INTO 'accounts' (username,password,salt) VALUES ('$username','$password','$salt')" ;
-       $sql = "INSERT INTO accounts (username, password, salt) VALUES ('$username', '$password', '$salt')"; 
-		$query = mysqli_query($connection,$sql)	;
-		
 	if($query)
+
 {
 echo "Success executing : $sql";
 }
@@ -30,8 +23,6 @@ else
 echo "Failed executing : $sql";
 }
 }
-
-
 ?>
 
 
